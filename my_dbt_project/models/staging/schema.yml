@@ -1,0 +1,66 @@
+version: 1
+
+models:
+  - name: stg_users
+    description: "Cleaned user signup records"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+      - name: signup_date
+        tests:
+          - not_null
+
+      - name: country
+      - name: acquisition_channel
+      - name: signup_day
+
+  - name: stg_events
+    description: "Event stream for onboarding, activation, and engagement"
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+
+      - name: event_name
+      - name: event_timestamp
+
+  - name: stg_txns
+    description: "Transaction fact table in staging"
+    columns:
+      - name: txn_id
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+
+      - name: amount
+      - name: fee
+      - name: txn_type
+      - name: currency
+      - name: transaction_timestamp
+
+  - name: stg_marketing
+    description: "Daily marketing spend by channel"
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: channel
+      - name: spend
+

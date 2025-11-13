@@ -1,0 +1,16 @@
+version: 1
+
+models:
+  - name: marts
+    description: >
+      The **marts** layer is the final analytics layer of the Streamify project.  
+      It transforms curated intermediate models into business-facing metrics and KPIs for different teams.
+      The marts are divided into three thematic subdomains:
+
+      **Core:** Foundational analytics around user behavior, funnels, and retention.  
+      **Finance:** Revenue, profitability, and customer lifetime value metrics.  
+      **Marketing:** Channel attribution, ROI tracking, and acquisition efficiency insights.
+
+    meta:
+      owner: "James Essiet"
+      tags: ["marts", "analytics", "final_layer"]

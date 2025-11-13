@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: revenue_summary
+    description: >
+      Provides per-user and per-channel revenue metrics, including GMV,
+      fees, transaction counts, and activity span to assess monetization health.
+    meta:
+      owner: "James Essiet"
+      tags: ["finance", "revenue", "summary"]
+
+  - name: customer_ltv
+    description: >
+      Estimates 30-day, 90-day, and total lifetime value (LTV)
+      by acquisition channel and signup cohort.
+    meta:
+      owner: "James Essiet"
+      tags: ["finance", "ltv", "retention"]
+
+  - name: payback_recovery
+    description: >
+      Merges marketing spend and LTV data to calculate CAC payback
+      periods, payback ratios, and ROI tiers by channel.
+    meta:
+      owner: "James Essiet"
+      tags: ["finance", "payback", "roi"]
+
+  - name: revenue_trends
+    description: >
+      Tracks monthly GMV, revenue, take rate, and engagement trends
+      to visualize revenue evolution and growth by channel.
+    meta:
+      owner: "James Essiet"
+      tags: ["finance", "revenue", "growth"]
+
+  - name: profitability_dashboard
+    description: >
+      Consolidates marketing and revenue data into a single profitability
+      view with ROI, profit margins, and revenue growth rates per channel.
+    meta:
+      owner: "James Essiet"
+      tags: ["finance", "profitability", "roi"]
+

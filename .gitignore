@@ -1,0 +1,15 @@
+# Python
+venv/
+*.pyc
+__pycache__/
+
+# dbt
+my_dbt_project/target/
+my_dbt_project/dbt_packages/
+my_dbt_project/logs/
+
+# OS files
+.DS_Store
+
+ingestion_scripts/.env
+logs/

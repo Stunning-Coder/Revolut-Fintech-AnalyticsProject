@@ -1,0 +1,12 @@
+# models/staging/sources.yml
+version: 1
+
+sources:
+  - name: stg_data
+    database: streamify_inc
+    schema: public
+    tables:
+      - name: users
+      - name: events
+      - name: transactions
+      - name: marketing_spend

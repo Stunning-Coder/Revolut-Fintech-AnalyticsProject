@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: user_funnel
+    description: >
+      Tracks each user's journey from signup through activation,
+      including funnel stages, conversion flags, and time-to-event metrics.
+    meta:
+      owner: "James Essiet"
+      tags: ["core", "funnel", "activation"]
+
+  - name: daily_kpis
+    description: >
+      Aggregates daily metrics such as DAU, new signups, activations,
+      GMV, fees, and platform-level activity for executive dashboards.
+    meta:
+      owner: "James Essiet"
+      tags: ["core", "kpi", "daily"]
+
+  - name: marketing_attribution
+    description: >
+      Connects acquisition channels with downstream activation and
+      conversion data to calculate CAC and CPA by channel.
+    meta:
+      owner: "James Essiet"
+      tags: ["core", "marketing", "attribution"]
+
+  - name: cohorts
+    description: >
+      Computes user retention and cohort performance by signup date,
+      supporting day-over-day and week-over-week retention analysis.
+    meta:
+      owner: "James Essiet"
+      tags: ["core", "cohorts", "retention"]
+
+  - name: user_value
+    description: >
+      Combines funnel, transaction, and engagement data to estimate
+      each user’s total value and activity lifecycle.
+    meta:
+      owner: "James Essiet"
+      tags: ["core", "user_value", "engagement"]
+
