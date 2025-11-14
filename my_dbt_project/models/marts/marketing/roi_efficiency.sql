@@ -29,7 +29,7 @@ select
 	lm.signup_month,
 	round(lm.avg_ltv_30d::numeric,2) as avg_ltv_30d,
 	round(lm.avg_ltv_90d::numeric,2) as avg_ltv_90d,
-	round(avg_ltv_total::numeric,2),
+	round(avg_ltv_total::numeric,2) as avg_ltv_total,
 	round(ma.agg_cac::numeric,2) as CAC,
 	round((lm.avg_ltv_30d / ma.agg_cac)::numeric,3) as payback_ratio_30d,
 	round((lm.avg_ltv_90d / ma.agg_cac)::numeric,3) as payback_ratio_90d,

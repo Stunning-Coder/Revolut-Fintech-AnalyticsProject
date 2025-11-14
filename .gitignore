@@ -7,6 +7,8 @@ __pycache__/
 my_dbt_project/target/
 my_dbt_project/dbt_packages/
 my_dbt_project/logs/
+my_dbt_project/models/marts/marketing/campaign_analysis.sql
+
 
 # OS files
 .DS_Store

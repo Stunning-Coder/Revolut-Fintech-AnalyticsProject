@@ -1,0 +1,117 @@
+version: 2
+
+models:
+
+  - name: int_events_pivot
+    description: "User-level onboarding funnel timestamps: signup → KYC start → KYC complete → Add mon→ Activation. One row per user."
+    meta:
+      owner: "James Essiet"
+      domain: "intermediate"
+    columns:
+      - name: user_id
+        description: "Unique identifier for the user."
+        tests:
+          - not_null
+          - unique
+      - name: signup_ts
+        description: "Timestamp when user signed up."
+      - name: kyc_start_ts
+        description: "Timestamp when the user started KYC."
+      - name: kyc_complete_ts
+        description: "Timestamp when user completed KYC."
+      - name: add_money_click_ts
+        description: "Timestamp when user clicked Add Money."
+      - name: activation_ts
+        description: "Timestamp when user became active."
+
+  - name: int_user_activity
+    description: "Daily activity record for every user, containing DAU-level detail: total events, first and last event timestamps, platform distribution."
+    meta:
+      owner: "James Essiet"
+      domain: "intermediate"
+    columns:
+      - name: user_id
+        description: "Unique identifier for the user."
+        tests:
+          - not_null
+      - name: event_date
+        description: "Date the activity occurred."
+        tests:
+          - not_null
+      - name: total_events
+        description: "Number of events performed by the user on that day."
+      - name: first_event_ts
+        description: "Timestamp of earliest event that day."
+      - name: last_event_ts
+        description: "Timestamp of latest event that day."
+      - name: android_events
+        description: "Count of Android events."
+      - name: ios_events
+        description: "Count of iOS events."
+      - name: web_events
+        description: "Count of web events."
+      - name: mobile_events
+        description: "Count of mobile device events."
+      - name: desktop_events
+        description: "Count of desktop device events."
+      - name: is_first_active_day
+        description: "Flags a user's first active day."
+
+  - name: int_user_txn_agg
+    description: "Per-user aggregated transaction metrics: GMV, fees, txn count, transaction timestamps, revenue."
+    meta:
+      owner: "James Essiet"
+      domain: "intermediate"
+    columns:
+      - name: user_id
+        description: "Unique identifier for the user."
+        tests:
+          - not_null
+          - unique
+      - name: total_txn_count
+        description: "Number of transactions performed by the user."
+      - name: gmv
+        description: "Total monetary value of all transactions."
+      - name: total_fees
+        description: "Total fees generated from user transactions."
+      - name: deposit_txn_count
+        description: "Number of deposits performed by the user."
+      - name: withdrawal_txn_account
+        description: "Number of withdrawals performed by the user."
+      - name: transfer_txn_count
+        description: "Number of payment transfers performed by the user."
+      - name: merchant_payment_txn_count
+        description: "Number of merchant payments performed by the user."
+      - name: avg_txn_amount
+        description: "Average transaction amount."
+      - name: first_transaction_ts
+        description: "Timestamp of user’s first transaction."
+      - name: last_transaction_ts
+        description: "Timestamp of user’s most recent transaction."
+
+  - name: int_marketing_daily
+    description: "Daily marketing spend per channel, with calendar breakdown: weekday/weekend, week, month, quarter."
+    meta:
+      owner: "James Essiet"
+      domain: "intermediate"
+    columns:
+      - name: date
+        description: "Date of marketing spend."
+        tests:
+          - not_null
+      - name: channel
+        description: "Marketing channel."
+        tests:
+          - not_null
+      - name: spend
+        description: "Daily spend on that channel."
+      - name: is_weekend
+        description: "Flags if spend occurred on weekend."
+      - name: week
+        description: "Calendar week number."
+      - name: month
+        description: "Calendar month number."
+      - name: quarter
+        description: "Calendar quarter."
+      - name: year
+        description: "Calendar year."
